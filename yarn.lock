@@ -8265,6 +8265,7 @@ __metadata:
     storybook: ^8.0.4
     typescript: ^5.2.2
     vite: ^5.2.0
+    zod: ^3.22.4
   languageName: unknown
   linkType: soft
 
