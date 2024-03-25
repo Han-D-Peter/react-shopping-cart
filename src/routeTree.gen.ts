@@ -16,17 +16,12 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 const DetailIndexLazyImport = createFileRoute('/detail/')()
+const AboutIndexLazyImport = createFileRoute('/about/')()
 const DetailDetailIdLazyImport = createFileRoute('/detail/$detailId')()
 
 // Create/Update Routes
-
-const AboutLazyRoute = AboutLazyImport.update({
-  path: '/about',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
@@ -37,6 +32,11 @@ const DetailIndexLazyRoute = DetailIndexLazyImport.update({
   path: '/detail/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/detail/index.lazy').then((d) => d.Route))
+
+const AboutIndexLazyRoute = AboutIndexLazyImport.update({
+  path: '/about/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/about/index.lazy').then((d) => d.Route))
 
 const DetailDetailIdLazyRoute = DetailDetailIdLazyImport.update({
   path: '/detail/$detailId',
@@ -53,12 +53,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      preLoaderRoute: typeof AboutLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/detail/$detailId': {
       preLoaderRoute: typeof DetailDetailIdLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/about/': {
+      preLoaderRoute: typeof AboutIndexLazyImport
       parentRoute: typeof rootRoute
     }
     '/detail/': {
@@ -72,8 +72,8 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
-  AboutLazyRoute,
   DetailDetailIdLazyRoute,
+  AboutIndexLazyRoute,
   DetailIndexLazyRoute,
 ])
 
