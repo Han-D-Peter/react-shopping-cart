@@ -7,5 +7,11 @@ export const Route = createLazyFileRoute("/")({
 });
 
 function About() {
+  const { data } = useQuery({
+    queryKey: ["products"],
+    queryFn: async () => (await fetch("/carts")).json(),
+  });
+
+  console.log("data", data);
   return <div className="p-2">Hello from About!</div>;
 }
