@@ -1,7 +1,7 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import Button from "../../domains/shared/components/Button/Button";
 
-export const Route = createLazyFileRoute("/about/")({
+export const Route = createLazyFileRoute("/myorders/")({
   component: Index,
 });
 
