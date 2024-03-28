@@ -13,9 +13,13 @@ export default function Button(props: Button) {
     children,
     onlyText = false,
     size = "md",
+    ...rest
   } = props;
   return (
-    <button className={`${buttonStyle({ appearance, onlyText, size })}`}>
+    <button
+      className={`${buttonStyle({ appearance, onlyText, size })}`}
+      {...rest}
+    >
       {children}
     </button>
   );
