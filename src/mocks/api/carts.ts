@@ -1,15 +1,18 @@
 import { DELETE_API, GET_API, METHOD, POST_API } from "./types";
 
-const URI = {
+export const CART_URI = {
   carts: {
     uri: "/carts",
+    cartId: {
+      uri: "/carts/:id",
+    },
   },
 };
 
 export const cartsAPI: (GET_API | DELETE_API | POST_API)[] = [
   {
     method: METHOD.POST,
-    uri: URI.carts.uri,
+    uri: CART_URI.carts.uri,
     requestBody: {
       products: {
         id: 10,
@@ -19,29 +22,31 @@ export const cartsAPI: (GET_API | DELETE_API | POST_API)[] = [
       },
     },
   },
-  { method: METHOD.DELETE, uri: URI.carts.uri },
+  { method: METHOD.DELETE, uri: CART_URI.carts.cartId.uri },
   {
     method: METHOD.GET,
-    uri: URI.carts.uri,
-    response: [
-      {
-        id: 1,
-        product: {
-          name: "test",
-          price: 1234,
-          imageUrl: "test.com",
+    uri: CART_URI.carts.uri,
+    response: {
+      response: [
+        {
           id: 1,
+          product: {
+            name: "test",
+            price: 1234,
+            imageUrl: "test.com",
+            id: 1,
+          },
         },
-      },
-      {
-        id: 5,
-        product: {
-          name: "tes11111t",
-          price: 1234,
-          imageUrl: "test.com",
-          id: 10,
+        {
+          id: 5,
+          product: {
+            name: "tes11111t",
+            price: 1234,
+            imageUrl: "test.com",
+            id: 10,
+          },
         },
-      },
-    ],
+      ],
+    },
   },
 ];

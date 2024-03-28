@@ -4,11 +4,9 @@ import { cartsAPI } from "./api/carts";
 import { productsAPI } from "./api/products";
 import { ordersAPI } from "./api/orders";
 
-export const handlers = [
-  ...convertAPIs(cartsAPI),
-  ...convertAPIs(productsAPI),
-  ...convertAPIs(ordersAPI),
-];
+export const handlers = [cartsAPI, productsAPI, ordersAPI]
+  .map((api) => convertAPIs(api))
+  .flat();
 
 // const request = {
 //   get: convertGetAPI,
@@ -32,22 +30,20 @@ function convertAPIs(apis: (GET_API | DELETE_API | POST_API)[]) {
 }
 
 function convertGetAPI(api: GET_API) {
-  return http[api.method](api.uri as string, () => {
+  return http.get(api.uri as string, () => {
     return HttpResponse.json(api.response);
   });
 }
 function convertPostAPI(api: POST_API) {
   return http.post(api.uri, async ({ request, params }) => {
     const keys = getParams(api.uri).map((param) => params[param]);
-    const info = await request.formData();
-    console.log("keys", keys);
-    console.log("info", info);
-    return HttpResponse.json({ status: "Success" });
+    console.log("request", await request.json());
+    return HttpResponse.json({ response: {} });
   });
 }
 function convertDeleteAPI(api: DELETE_API) {
   return http.delete(api.uri, () => {
-    return HttpResponse.json({ status: "Success" });
+    return HttpResponse.json({ response: {} });
   });
 }
 

@@ -3122,6 +3122,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-devtools@npm:5.28.6":
+  version: 5.28.6
+  resolution: "@tanstack/query-devtools@npm:5.28.6"
+  checksum: 5f0468bfdaa9d711010272f72e78ef30dce099a5c7483dfe3e7e4fe9f55c74a790a00645ff6524f674b411476be1e975648ac1be0a087fbfa6a674f758968145
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:^5.28.9":
+  version: 5.28.9
+  resolution: "@tanstack/react-query-devtools@npm:5.28.9"
+  dependencies:
+    "@tanstack/query-devtools": 5.28.6
+  peerDependencies:
+    "@tanstack/react-query": ^5.28.9
+    react: ^18.0.0
+  checksum: 6afbf8c4d529ae914abebcdfe512a422de5bfdeb64667549801625d5009587cf4682edc4474bb97ccf985f12d65751f5e12bf819ad29b31372d35ec98461b3cf
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-query@npm:^5.28.6":
   version: 5.28.6
   resolution: "@tanstack/react-query@npm:5.28.6"
@@ -8678,6 +8697,7 @@ __metadata:
     "@storybook/react-vite": ^8.0.4
     "@storybook/test": ^8.0.4
     "@tanstack/react-query": ^5.28.6
+    "@tanstack/react-query-devtools": ^5.28.9
     "@tanstack/react-router": ^1.22.3
     "@tanstack/router-devtools": ^1.22.3
     "@tanstack/router-vite-plugin": ^1.20.5
