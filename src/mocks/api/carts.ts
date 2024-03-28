@@ -1,10 +1,11 @@
+import { BASE_URL } from "../../domains/shared/constants";
 import { DELETE_API, GET_API, METHOD, POST_API } from "./types";
 
 export const CART_URI = {
   carts: {
-    uri: "/carts",
+    uri: `${BASE_URL}carts`,
     cartId: {
-      uri: "/carts/:id",
+      uri: `${BASE_URL}carts/:id`,
     },
   },
 };
