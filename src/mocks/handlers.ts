@@ -35,9 +35,8 @@ function convertGetAPI(api: GET_API) {
   });
 }
 function convertPostAPI(api: POST_API) {
-  return http.post(api.uri, async ({ request, params }) => {
-    const keys = getParams(api.uri).map((param) => params[param]);
-    console.log("request", await request.json());
+  return http.post(api.uri, async () => {
+    // const keys = getParams(api.uri).map((param) => params[param]);
     return HttpResponse.json({ response: {} });
   });
 }
@@ -47,7 +46,7 @@ function convertDeleteAPI(api: DELETE_API) {
   });
 }
 
-function getParams(uri: string) {
+export function getParams(uri: string) {
   const uriNames = uri.split("/").filter((uri) => uri.includes(":"));
   return uriNames;
 }

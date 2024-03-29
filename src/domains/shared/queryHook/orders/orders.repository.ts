@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ORDERS_URI } from "../../../../mocks/api/orders";
-import { Response, responseScheme } from "../types";
+import { responseScheme } from "../types";
 import { Order, orderScheme, ordersScheme } from "./orders.type";
 
 class OrderRepository {
