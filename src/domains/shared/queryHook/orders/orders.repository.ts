@@ -1,13 +1,14 @@
 import { z } from "zod";
 import { ORDERS_URI } from "../../../../mocks/api/orders";
-import { responseScheme } from "../types";
+import { Response, responseScheme } from "../types";
 import { Order, orderScheme, ordersScheme } from "./orders.type";
 
 class OrderRepository {
   async getOrders() {
     try {
       const response = await fetch(ORDERS_URI.orders.uri);
-      const responseData = await response.json();
+      const responseData: Response<z.infer<typeof ordersScheme>> =
+        await response.json();
       const zodParsed = responseScheme(ordersScheme).parse(responseData);
       return zodParsed;
     } catch (error) {
