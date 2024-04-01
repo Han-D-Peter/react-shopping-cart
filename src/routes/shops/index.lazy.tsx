@@ -1,9 +1,16 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
+import ShopsPage from "../../domains/shops/ShopsPage";
+import { Suspense } from "react";
+import Loader from "../../domains/shared/components/Loader/Loader";
 
 export const Route = createLazyFileRoute("/shops/")({
   component: Shops,
 });
 
 function Shops() {
-  return <div className="p-2">Shops</div>;
+  return (
+    <Suspense fallback={<Loader />}>
+      <ShopsPage />
+    </Suspense>
+  );
 }

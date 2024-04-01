@@ -1,3 +1,4 @@
+import { MouseEvent } from "react";
 import IconButton from "../IconButton/IconButton";
 import { CardContainer, CardImg, CardInfo } from "./ProductCard.css";
 
@@ -14,6 +15,11 @@ export default function ProductCard({
   price,
   onAdd,
 }: ProductCard) {
+  function add(e: MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    onAdd && onAdd();
+  }
   return (
     <div className={CardContainer}>
       <div>
@@ -26,6 +32,7 @@ export default function ProductCard({
         </div>
         <div>
           <IconButton
+            onClick={add}
             width={30}
             height={26}
             src="/icons/carts.svg"

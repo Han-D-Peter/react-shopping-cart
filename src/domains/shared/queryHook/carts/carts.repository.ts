@@ -20,7 +20,7 @@ class CartsRepository {
       method: "POST",
       body: JSON.stringify({ product }),
     });
-    console.log("response", response);
+
     const responseData: Response<{}> = await response.json();
     const zodParsed = responseScheme(z.object({})).parse(responseData);
     return zodParsed;
