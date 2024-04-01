@@ -90,5 +90,6 @@ export const buttonStyle = recipe({
     justifyContent: "center",
     alignItems: "center",
     color: "white",
+    cursor: "pointer",
   },
 });
