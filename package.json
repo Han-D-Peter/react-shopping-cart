@@ -48,6 +48,9 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
+  "resolutions": {
+    "@types/mime": "3.0.4"
+  },
   "msw": {
     "workerDirectory": [
       "public"
