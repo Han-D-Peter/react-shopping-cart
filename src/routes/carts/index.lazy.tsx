@@ -1,13 +1,6 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
+import CartsPage from "../../domains/carts/CartsPage/CartsPage";
 
 export const Route = createLazyFileRoute("/carts/")({
-  component: Index,
+  component: CartsPage,
 });
-
-function Index() {
-  return (
-    <div className="p-2">
-      <h3>carts</h3>
-    </div>
-  );
-}

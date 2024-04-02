@@ -4,6 +4,11 @@ export const cardContainer = style({
   maxWidth: "740px",
   maxHeight: "178px",
   display: "flex",
+  justifyContent: "space-between",
+});
+
+export const cardLeftSection = style({
+  display: "flex",
 });
 
 export const cardDescription = style({

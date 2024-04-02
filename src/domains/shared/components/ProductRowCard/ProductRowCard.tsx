@@ -1,3 +1,4 @@
+import { ChangeEvent, useState } from "react";
 import Count from "../Count/Count";
 import IconButton from "../IconButton/IconButton";
 import {
@@ -5,6 +6,7 @@ import {
   cardDescription,
   cardFeatureContainer,
   cardImg,
+  cardLeftSection,
   cardTitle,
 } from "./ProductRowCard.css";
 
@@ -15,7 +17,7 @@ interface ProductRowCard {
   quanity?: number;
   onChangeQuanity?: (quanity: number) => void;
   onRemove?: () => void;
-  onCheck?: () => void;
+  onCheck?: (value: boolean) => void;
   checked?: boolean;
 }
 
@@ -29,22 +31,37 @@ export default function ProductRowCard({
   onCheck,
   checked,
 }: ProductRowCard) {
+  const [isChecked, setIsChecked] = useState(checked);
+
+  function check(event: ChangeEvent<HTMLInputElement>) {
+    if (onCheck) {
+      onCheck(event.target.checked);
+    }
+  }
+
   return (
     <div className={cardContainer}>
-      <div>
+      <div className={cardLeftSection}>
         <div>
-          <input type="checkbox" />
+          <div>
+            <input
+              type="checkbox"
+              checked={checked === null ? isChecked : checked}
+              onChange={check}
+            />
+          </div>
         </div>
-      </div>
-      <div className={cardDescription}>
-        <div>
-          <img className={cardImg} src={productImgUrl} alt="product img" />
+        <div className={cardDescription}>
+          <div>
+            <img className={cardImg} src={productImgUrl} alt="product img" />
+          </div>
+          <div className={cardTitle}>{title}</div>
         </div>
-        <div className={cardTitle}>{title}</div>
       </div>
       <div className={cardFeatureContainer}>
         <div>
           <IconButton
+            onClick={onRemove}
             width={30}
             height={26}
             src="/icons/carts.svg"
@@ -52,7 +69,7 @@ export default function ProductRowCard({
           />
         </div>
         <div>
-          <Count />
+          <Count value={quanity} onChange={onChangeQuanity} min={0} />
         </div>
         <div>{price.toLocaleString()} 원</div>
       </div>
