@@ -12,6 +12,9 @@ export function useAddProductToCart() {
   return useMutation({
     mutationKey: ["addProductToCart"],
     mutationFn: cartsRepository.addToCart,
+    onSuccess() {
+      alert("카트 이동 성공");
+    },
   });
 }
 

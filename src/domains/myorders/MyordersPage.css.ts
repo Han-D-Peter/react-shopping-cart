@@ -27,3 +27,7 @@ export const underLine = style({
 export const orderSection = style({
   width: "100%",
 });
+
+export const orderBox = style({
+  marginBottom: "40px",
+});

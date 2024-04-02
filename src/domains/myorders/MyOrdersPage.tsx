@@ -4,6 +4,7 @@ import { Order } from "../shared/queryHook/orders/orders.type";
 import OrderBox from "./components/OrderBox/OrderBox";
 import {
   container,
+  orderBox,
   orderSection,
   section,
   titleContainer,
@@ -22,7 +23,11 @@ export default function MyOrdersPage() {
         <div className={orderSection}>
           {data?.response.map(
             (order: { id: number; orderDetails: Order[] }) => {
-              return <OrderBox id={order.id} orders={order.orderDetails} />;
+              return (
+                <div className={orderBox}>
+                  <OrderBox id={order.id} orders={order.orderDetails} />
+                </div>
+              );
             }
           )}
         </div>

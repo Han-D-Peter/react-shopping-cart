@@ -10,12 +10,14 @@ interface OrderProductRowCard {
   imgSrc: string;
   title: string;
   quantity: number;
+  price: number;
 }
 
 export default function OrderProductRowCard({
   imgSrc,
   title,
   quantity,
+  price,
 }: OrderProductRowCard) {
   return (
     <div className={cardContainer}>
@@ -27,7 +29,7 @@ export default function OrderProductRowCard({
           <Text as="description">{title}</Text>
         </div>
         <div className={cardQuantity}>
-          <Text as="caption">{`수량: ${quantity.toLocaleString()}`}</Text>
+          <Text as="caption">{`${price.toLocaleString()}원 / 수량: ${quantity.toLocaleString()}`}</Text>
         </div>
       </div>
     </div>

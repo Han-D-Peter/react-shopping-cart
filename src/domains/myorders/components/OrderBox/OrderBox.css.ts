@@ -8,7 +8,7 @@ export const orderProductBox = style({
   padding: "38px 26px",
   border: "1px solid grey",
   display: "flex",
-  justifyContent: "flex-start",
+  justifyContent: "space-between",
   alignItems: "center",
 });
 
@@ -19,4 +19,17 @@ export const orderHeader = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+});
+
+export const alinkReset = style({
+  textDecoration: "none",
+  color: "black",
+  ":active": {
+    textDecoration: "none",
+  },
+});
+
+export const buttonBox = style({
+  width: "138px",
+  height: "47px",
 });
