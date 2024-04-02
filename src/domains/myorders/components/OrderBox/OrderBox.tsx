@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import IconButton from "../../../shared/components/IconButton/IconButton";
 import OrderProductRowCard from "../../../shared/components/OrderProductRowCard/OrderProductRowCard";
 import Text from "../../../shared/components/Text/Text";
-import { Order, Orders } from "../../../shared/queryHook/orders/orders.type";
+import { Order } from "../../../shared/queryHook/orders/orders.type";
 import {
   alinkReset,
   buttonBox,

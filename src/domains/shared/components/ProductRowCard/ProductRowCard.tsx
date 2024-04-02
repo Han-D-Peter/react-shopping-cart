@@ -31,8 +31,6 @@ export default function ProductRowCard({
   onCheck,
   checked,
 }: ProductRowCard) {
-  const [isChecked, setIsChecked] = useState(checked);
-
   function check(event: ChangeEvent<HTMLInputElement>) {
     if (onCheck) {
       onCheck(event.target.checked);
@@ -44,11 +42,7 @@ export default function ProductRowCard({
       <div className={cardLeftSection}>
         <div>
           <div>
-            <input
-              type="checkbox"
-              checked={checked === null ? isChecked : checked}
-              onChange={check}
-            />
+            <input type="checkbox" onChange={check} {...{ checked }} />
           </div>
         </div>
         <div className={cardDescription}>
