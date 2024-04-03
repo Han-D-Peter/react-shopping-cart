@@ -1,7 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useProduct } from "../shared/queryHook/products/products.query";
 import Text from "../shared/components/Text/Text";
-import Button from "../shared/components/Button/Button";
+import Button from "../shared/components/primitive/Button/Button";
 import {
   buttonBox,
   priceBox,

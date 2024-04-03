@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
-import Count from "../Count/Count";
-import IconButton from "../IconButton/IconButton";
+import Count from "../../primitive/Count/Count";
+import IconButton from "../../primitive/IconButton/IconButton";
 import {
   cardContainer,
   cardDescription,

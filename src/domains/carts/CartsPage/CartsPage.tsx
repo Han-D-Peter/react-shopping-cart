@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import Button from "../../shared/components/Button/Button";
-import DecisionPriceBox from "../../shared/components/DecisionPriceBox/DecisionPriceBox";
-import ProductRowCard from "../../shared/components/ProductRowCard/ProductRowCard";
+import Button from "../../shared/components/primitive/Button/Button";
+import DecisionPriceBox from "../../shared/components/domained/DecisionPriceBox/DecisionPriceBox";
+import ProductRowCard from "../../shared/components/domained/ProductRowCard/ProductRowCard";
 import Text from "../../shared/components/Text/Text";
 import { useCarts } from "../../shared/queryHook/carts/carts.query";
 import {

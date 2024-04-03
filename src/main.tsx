@@ -5,6 +5,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 
 import { routeTree } from "./routeTree.gen.ts";
+import { router } from "./routes/config.ts";
+import { queryClient } from "./domains/shared/queryHook/config.ts";
 
 async function enableMocking() {
   if (process.env.NODE_ENV !== "development") {
@@ -17,16 +19,6 @@ async function enableMocking() {
   // once the Service Worker is up and ready to intercept requests.
   return worker.start();
 }
-
-export const router = createRouter({ routeTree });
-
-declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof router;
-  }
-}
-
-export const queryClient = new QueryClient();
 
 enableMocking().then(() => {
   ReactDOM.createRoot(document.getElementById("root")!).render(

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import ProductCard from "../shared/components/ProductCard/ProductCard";
+import ProductCard from "../shared/components/domained/ProductCard/ProductCard";
 import { useAddProductToCart } from "../shared/queryHook/carts/carts.query";
 import { useProducts } from "../shared/queryHook/products/products.query";
 import { Product } from "../shared/queryHook/types";

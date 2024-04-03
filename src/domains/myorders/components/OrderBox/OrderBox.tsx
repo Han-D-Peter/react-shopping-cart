@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import OrderProductRowCard from "../../../shared/components/OrderProductRowCard/OrderProductRowCard";
+import OrderProductRowCard from "../../../shared/components/domained/OrderProductRowCard/OrderProductRowCard";
 import Text from "../../../shared/components/Text/Text";
 import { Order } from "../../../shared/queryHook/orders/orders.type";
 import {
@@ -9,7 +9,7 @@ import {
   orderHeader,
   orderProductBox,
 } from "./OrderBox.css";
-import Button from "../../../shared/components/Button/Button";
+import Button from "../../../shared/components/primitive/Button/Button";
 import { useAddProductToCart } from "../../../shared/queryHook/carts/carts.query";
 
 interface OrderBox {

@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import IconButton from "../IconButton/IconButton";
+import IconButton from "../../primitive/IconButton/IconButton";
 import { CardContainer, CardImg, CardInfo } from "./ProductCard.css";
 
 interface ProductCard {
