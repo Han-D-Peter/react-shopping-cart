@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import OrderProductRowCard from "../../../shared/components/domained/OrderProductRowCard/OrderProductRowCard";
-import Text from "../../../shared/components/Text/Text";
 import { Order } from "../../../shared/queryHook/orders/orders.type";
 import {
   alinkReset,
@@ -11,6 +10,7 @@ import {
 } from "./OrderBox.css";
 import Button from "../../../shared/components/primitive/Button/Button";
 import { useAddProductToCart } from "../../../shared/queryHook/carts/carts.query";
+import Text from "../../../shared/components/primitive/Text/Text";
 
 interface OrderBox {
   id: number;

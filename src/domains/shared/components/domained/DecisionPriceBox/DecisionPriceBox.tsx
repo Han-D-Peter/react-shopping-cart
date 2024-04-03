@@ -1,5 +1,6 @@
 import Button from "../../primitive/Button/Button";
-import Text from "../Text/Text";
+import Text from "../../primitive/Text/Text";
+
 import {
   buttonBox,
   container,

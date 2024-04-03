@@ -1,4 +1,4 @@
-import Text from "../Text/Text";
+import Text from "../../primitive/Text/Text";
 import {
   cardContainer,
   cardImg,

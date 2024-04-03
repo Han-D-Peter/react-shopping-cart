@@ -1,4 +1,4 @@
-import Text from "../shared/components/Text/Text";
+import Text from "../shared/components/primitive/Text/Text";
 import { useOrders } from "../shared/queryHook/orders/orders.query";
 import { Order } from "../shared/queryHook/orders/orders.type";
 import OrderBox from "./components/OrderBox/OrderBox";

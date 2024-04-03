@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import Button from "../../shared/components/primitive/Button/Button";
 import DecisionPriceBox from "../../shared/components/domained/DecisionPriceBox/DecisionPriceBox";
 import ProductRowCard from "../../shared/components/domained/ProductRowCard/ProductRowCard";
-import Text from "../../shared/components/Text/Text";
+
 import { useCarts } from "../../shared/queryHook/carts/carts.query";
 import {
   buttonBox,
@@ -17,6 +17,7 @@ import {
   titleContainer,
   underLine,
 } from "./CartsPage.css";
+import Text from "../../shared/components/primitive/Text/Text";
 
 type Cart = {
   id: number;
