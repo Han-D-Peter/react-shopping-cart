@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { headerBox, innerContainer, link, navList } from "./Header.css";
-import Text from "../Text/Text";
+import Text from "../../primitive/Text/Text";
 
 export default function Header() {
   return (

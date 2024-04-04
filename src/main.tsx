@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { RouterProvider } from "@tanstack/react-router";
-import { router } from "./routes/config.ts";
+import { router } from "./routeConfig.ts";
 import { queryClient } from "./domains/shared/queryHook/config.ts";
 import { enableMocking } from "./mocks/browser.ts";
 

@@ -13,7 +13,6 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as ConfigImport } from './routes/config'
 
 // Create Virtual Routes
 
@@ -25,11 +24,6 @@ const ShopsIdLazyImport = createFileRoute('/shops/$id')()
 const MyordersOrderIdLazyImport = createFileRoute('/myorders/$orderId')()
 
 // Create/Update Routes
-
-const ConfigRoute = ConfigImport.update({
-  path: '/config',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const ShopsIndexLazyRoute = ShopsIndexLazyImport.update({
   path: '/shops/',
@@ -69,10 +63,6 @@ const MyordersOrderIdLazyRoute = MyordersOrderIdLazyImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/config': {
-      preLoaderRoute: typeof ConfigImport
-      parentRoute: typeof rootRoute
-    }
     '/myorders/$orderId': {
       preLoaderRoute: typeof MyordersOrderIdLazyImport
       parentRoute: typeof rootRoute
@@ -103,7 +93,6 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  ConfigRoute,
   MyordersOrderIdLazyRoute,
   ShopsIdLazyRoute,
   CartsIndexLazyRoute,

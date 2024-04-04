@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import { button, countContainer, countText } from "./Count.css";
-import Text from "../../Text/Text";
+import Text from "../Text/Text";
 
 interface Count {
   max?: number;

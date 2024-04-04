@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import Header from "./Header";
 
 import { RouterProvider } from "@tanstack/react-router";
-import { router } from "../../../../../routes/config";
+import { router } from "../../../../../routeConfig";
 
 const meta: Meta<typeof Header> = {
   component: Header,

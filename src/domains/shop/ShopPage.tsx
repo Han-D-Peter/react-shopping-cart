@@ -1,6 +1,5 @@
 import { useParams } from "@tanstack/react-router";
 import { useProduct } from "../shared/queryHook/products/products.query";
-import Text from "../shared/components/Text/Text";
 import Button from "../shared/components/primitive/Button/Button";
 import {
   buttonBox,
@@ -11,6 +10,7 @@ import {
 } from "./components/ShopProduct/ShopProduct.css";
 import { useAddProductToCart } from "../shared/queryHook/carts/carts.query";
 import { Product } from "../shared/queryHook/types";
+import Text from "../shared/components/primitive/Text/Text";
 
 export default function ShopPage() {
   const { id } = useParams({ strict: false }) as { id: string };

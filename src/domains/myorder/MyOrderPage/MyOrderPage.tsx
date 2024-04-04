@@ -1,6 +1,6 @@
 import { useParams } from "@tanstack/react-router";
 import OrderBox from "../../myorders/components/OrderBox/OrderBox";
-import Text from "../../shared/components/Text/Text";
+
 import { useOrder } from "../../shared/queryHook/orders/orders.query";
 import {
   container,
@@ -11,6 +11,7 @@ import {
   titleContainer,
   underLine,
 } from "./MyOrderPage.css";
+import Text from "../../shared/components/primitive/Text/Text";
 
 export default function MyOrderPage() {
   const { orderId } = useParams({ strict: false }) as { orderId: string };
