@@ -1,12 +1,12 @@
 import { z } from "zod";
-import { CART_URI } from "../../../../mocks/api/carts";
 import { cartsScheme } from "./carts.type";
 import { Product, Response, responseScheme } from "../types";
+import { URI } from "../../URLs";
 
 class CartsRepository {
   async getCarts() {
     try {
-      const response = await fetch(CART_URI.carts.uri);
+      const response = await fetch(URI.CART_URI);
       const responseData = await response.json();
       const zodParsed = responseScheme(cartsScheme).parse(responseData);
       return zodParsed;
@@ -16,7 +16,7 @@ class CartsRepository {
   }
 
   async addToCart(product: Product) {
-    const response = await fetch(CART_URI.carts.uri, {
+    const response = await fetch(URI.CART_URI, {
       method: "POST",
       body: JSON.stringify({ product }),
     });
@@ -27,7 +27,7 @@ class CartsRepository {
   }
 
   async deleteProductFromCart({ id }: { id: number }) {
-    return fetch(`${CART_URI.carts.uri}/${id}`, { method: "DELETE" }).then<
+    return fetch(`${URI.CART_URI}/${id}`, { method: "DELETE" }).then<
       Response<{}>
     >((res) => {
       return responseScheme(z.object({})).parse(res.json());

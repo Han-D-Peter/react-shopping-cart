@@ -1,11 +1,11 @@
-import { BASE_URL } from "./../../domains/shared/constants";
+import { URI } from "../../domains/shared/URLs";
 import { DELETE_API, GET_API, METHOD, POST_API } from "./types";
 
 export const ORDERS_URI = {
   orders: {
-    uri: `${BASE_URL}orders`,
+    uri: URI.ORDERS_URI,
     orderId: {
-      uri: `${BASE_URL}orders/:id`,
+      uri: `${URI.ORDERS_URI}/:id`,
     },
   },
 };

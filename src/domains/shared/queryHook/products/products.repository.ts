@@ -1,4 +1,4 @@
-import { PRODUCTS_URI } from "../../../../mocks/api/products";
+import { URI } from "../../URLs";
 import { Product, productSchema, Response, responseScheme } from "../types";
 
 import { z } from "zod";
@@ -8,7 +8,7 @@ const getProductsSchema = z.array(productSchema);
 class ProductsRepository {
   async getProducts() {
     try {
-      const response = await fetch(PRODUCTS_URI.products.uri);
+      const response = await fetch(URI.PRODUCTS_URI);
       const responseData: Response<z.infer<typeof getProductsSchema>> =
         await response.json();
       return responseScheme(getProductsSchema).parse(responseData);
@@ -19,7 +19,7 @@ class ProductsRepository {
 
   async getProduct(id: number) {
     try {
-      const response = await fetch(`${PRODUCTS_URI.products.uri}/${id}`);
+      const response = await fetch(`${URI.PRODUCTS_URI}/${id}`);
       const responseData: Response<z.infer<typeof productSchema>> =
         await response.json();
       return responseScheme(productSchema).parse(responseData);
@@ -30,7 +30,7 @@ class ProductsRepository {
 
   async deleteProduct(id: number) {
     try {
-      const response = await fetch(`${PRODUCTS_URI.products.uri}/${id}`, {
+      const response = await fetch(`${URI.PRODUCTS_URI}/${id}`, {
         method: "DELETE",
       });
       const responseData = await response.json();
@@ -42,7 +42,7 @@ class ProductsRepository {
 
   async createProduct(products: Product) {
     try {
-      const response = await fetch(PRODUCTS_URI.products.uri, {
+      const response = await fetch(URI.PRODUCTS_URI, {
         method: "POST",
         body: JSON.stringify(products),
       });

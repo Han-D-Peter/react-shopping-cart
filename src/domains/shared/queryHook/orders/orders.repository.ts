@@ -1,12 +1,12 @@
 import { z } from "zod";
-import { ORDERS_URI } from "../../../../mocks/api/orders";
 import { Response, responseScheme } from "../types";
 import { Order, orderScheme, ordersScheme } from "./orders.type";
+import { URI } from "../../URLs";
 
 class OrderRepository {
   async getOrders() {
     try {
-      const response = await fetch(ORDERS_URI.orders.uri);
+      const response = await fetch(URI.ORDERS_URI);
       const responseData: Response<z.infer<typeof ordersScheme>> =
         await response.json();
       const zodParsed = responseScheme(ordersScheme).parse(responseData);
@@ -18,7 +18,7 @@ class OrderRepository {
 
   async getOrder(id: number) {
     try {
-      const response = await fetch(`${ORDERS_URI.orders.uri}/${id}`);
+      const response = await fetch(`${URI.ORDERS_URI}/${id}`);
       const responseData = await response.json();
       const zodParsed = responseScheme(orderScheme).parse(responseData);
       return zodParsed;
@@ -38,7 +38,7 @@ class OrderRepository {
 
   async addOrder(orderDetails: Order[]) {
     try {
-      const response = await fetch(ORDERS_URI.orders.uri, {
+      const response = await fetch(URI.ORDERS_URI, {
         method: "POST",
         body: JSON.stringify({ orderDetails }),
       });
