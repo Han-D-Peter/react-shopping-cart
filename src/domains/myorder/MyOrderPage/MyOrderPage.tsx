@@ -17,7 +17,7 @@ export default function MyOrderPage() {
   const { orderId } = useParams({ strict: false }) as { orderId: string };
   const { data } = useOrder(Number(orderId));
 
-  if (!data?.response) return <></>;
+  if (!data?.response) return null;
 
   const { id, orderDetails } = data.response;
 
