@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import cartsRepository from "./carts.repository";
+import cartsRepository from "./carts.clents";
 
 export function useCarts() {
   return useQuery({

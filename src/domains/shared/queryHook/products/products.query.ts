@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import productsRepository from "./products.repository";
+import productsRepository from "./products.clients";
 
 export function useProduct(id: number) {
   return useQuery({

@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import ordersRepository from "./orders.repository";
+import ordersRepository from "./orders.clients";
 
 export function useOrders() {
   return useQuery({
