@@ -1,9 +1,8 @@
-import { ChangeEvent, useEffect, useState } from "react";
 import Button from "../../shared/components/primitive/Button/Button";
 import DecisionPriceBox from "../../shared/components/domained/DecisionPriceBox/DecisionPriceBox";
 import ProductRowCard from "../../shared/components/domained/ProductRowCard/ProductRowCard";
 
-import { useCarts } from "../../shared/queryHook/carts/carts.query";
+import useCarts from "../hooks/useCarts";
 import {
   buttonBox,
   cartContainer,
@@ -19,67 +18,15 @@ import {
 } from "./CartsPage.css";
 import Text from "../../shared/components/primitive/Text/Text";
 
-type Cart = {
-  id: number;
-  quantity: number;
-  checked: boolean;
-  product: {
-    id: number;
-    price: number;
-    name: string;
-    imageUrl: string;
-  };
-};
-
 export default function CartsPage() {
-  const { data } = useCarts();
-
-  const [carts, setCarts] = useState<Cart[]>([]);
-
-  useEffect(() => {
-    if (!data?.response) return;
-    const propertiesAddedProducts = data.response.map((product) => ({
-      ...product,
-      quantity: 0,
-      checked: false,
-    }));
-    setCarts(propertiesAddedProducts);
-  }, [data]);
-
-  const checkedAtLeast =
-    carts.filter((cart) => cart.checked === true).length > 0;
-
-  function unCheckAll(event: ChangeEvent<HTMLInputElement>) {
-    if (!event.target.checked) {
-      const unCheckedThings = [...carts].map((cart) => {
-        cart.checked = false;
-        return cart;
-      });
-      setCarts(unCheckedThings);
-    }
-  }
-
-  const totalPrice = carts.reduce((total, product) => {
-    if (!product.checked) return total;
-    const mergedPrice = product.quantity * product.product.price;
-    return total + mergedPrice;
-  }, 0);
-
-  function checkProduct(index: number) {
-    return function () {
-      const copied = [...carts];
-      copied[index].checked = copied[index].checked ? false : true;
-      setCarts(copied);
-    };
-  }
-
-  function changeQuantity(index: number) {
-    return function (quantity: number) {
-      const copied = [...carts];
-      copied[index].quantity = quantity;
-      setCarts(copied);
-    };
-  }
+  const {
+    carts,
+    unCheckAll,
+    checkProduct,
+    changeQuantity,
+    totalPrice,
+    checkedAtLeast,
+  } = useCarts();
 
   return (
     <main className={container}>
