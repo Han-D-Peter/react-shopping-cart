@@ -1,7 +1,7 @@
-import { ButtonHTMLAttributes } from "react";
+import { ComponentProps } from "react";
 import { buttonStyle } from "./Button.css";
 
-interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Button extends ComponentProps<"button"> {
   appearance?: "primary" | "secondary" | "outline";
   size?: "xlg" | "lg" | "md" | "sm";
   onlyText?: boolean;

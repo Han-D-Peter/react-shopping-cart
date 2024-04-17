@@ -19,22 +19,27 @@ export default function Count({
   const [countValue, setCountValue] = useState(0);
 
   useEffect(() => {
-    onChange && onChange(value ?? countValue);
-  }, [countValue, value]);
+    onChange?.(value ?? countValue);
+  }, [countValue, value, onChange]);
+
+  function changeCountValue(value: number) {
+    onChange?.(value ?? countValue);
+    setCountValue(value);
+  }
 
   function up() {
     if (countValue >= max) {
-      setCountValue(max);
+      changeCountValue(max);
     } else {
-      setCountValue(countValue + 1);
+      changeCountValue(countValue + 1);
     }
   }
 
   function down() {
     if (countValue <= min) {
-      setCountValue(min);
+      changeCountValue(min);
     } else {
-      setCountValue(countValue - 1);
+      changeCountValue(countValue - 1);
     }
   }
 
