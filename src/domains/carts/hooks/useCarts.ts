@@ -24,7 +24,7 @@ export default function useCarts() {
     }
   }
 
-  function checkProduct(index: number) {
+  function createCheckProductFunction(index: number) {
     if (data && !isUnderArrayLength(carts, index))
       throw new Error("없는 상품입니다.");
     return function () {
@@ -66,7 +66,7 @@ export default function useCarts() {
   return {
     carts,
     unCheckAll,
-    checkProduct,
+    createCheckProductFunction,
     changeQuantity,
     totalPrice,
     checkedAtLeast,

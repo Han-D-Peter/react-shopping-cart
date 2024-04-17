@@ -22,7 +22,7 @@ export default function CartsPage() {
   const {
     carts,
     unCheckAll,
-    checkProduct,
+    createCheckProductFunction,
     changeQuantity,
     totalPrice,
     checkedAtLeast,
@@ -57,7 +57,7 @@ export default function CartsPage() {
                 return (
                   <ProductRowCard
                     onChangeQuanity={changeQuantity(index)}
-                    onCheck={checkProduct(index)}
+                    onCheck={createCheckProductFunction(index)}
                     checked={checked}
                     key={product.id}
                     productImgUrl={product.imageUrl}
