@@ -37,7 +37,7 @@ export default function ShopsPage() {
                 params={{ id: product.id.toFixed() }}
               >
                 <ProductCard
-                  onAdd={addToCart(product)}
+                  onAddClick={addToCart(product)}
                   imageUrl={product.imageUrl}
                   price={product.price}
                   title={product.name}

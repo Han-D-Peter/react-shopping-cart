@@ -2,7 +2,7 @@ import { createElement, ReactHTML } from "react";
 import { IconButtonStyle } from "./Text.css";
 
 interface Text {
-  tag: keyof ReactHTML;
+  tag?: keyof ReactHTML;
   as: "title" | "subtitle" | "body" | "description" | "caption";
   children: string | number;
   color?: string;
