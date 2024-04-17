@@ -42,7 +42,16 @@ export default function OrderBox({ id, orders }: OrderBox) {
             price={order.price}
           />
           <div className={buttonBox}>
-            <Button appearance="primary" onClick={() => mutate(order)}>
+            <Button
+              appearance="primary"
+              onClick={() =>
+                mutate(order, {
+                  onSuccess() {
+                    alert("카트 이동 성공");
+                  },
+                })
+              }
+            >
               장바구니
             </Button>
           </div>
