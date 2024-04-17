@@ -36,7 +36,7 @@ class OrderRepository {
   //   });
   // }
 
-  async addOrder(orderDetails: Order[]) {
+  async createOrder(orderDetails: Order[]) {
     try {
       const response = await fetch(URI.ORDERS_URI, {
         method: "POST",

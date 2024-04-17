@@ -18,6 +18,6 @@ export function useOrder(id: number) {
 export function useCreateOrder() {
   return useMutation({
     mutationKey: ["createOrder"],
-    mutationFn: ordersRepository.addOrder,
+    mutationFn: ordersRepository.createOrder,
   });
 }
