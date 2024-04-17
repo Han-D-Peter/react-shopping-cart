@@ -32,9 +32,7 @@ export default function ProductRowCard({
   checked,
 }: ProductRowCard) {
   function check(event: ChangeEvent<HTMLInputElement>) {
-    if (onCheck) {
-      onCheck(event.target.checked);
-    }
+    onCheck?.(event.target.checked);
   }
 
   return (

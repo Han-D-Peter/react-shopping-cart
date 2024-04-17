@@ -6,19 +6,19 @@ interface ProductCard {
   imageUrl: string;
   title: string;
   price: number;
-  onAdd?: () => void;
+  onAddClick?: () => void;
 }
 
 export default function ProductCard({
   imageUrl,
   title,
   price,
-  onAdd,
+  onAddClick,
 }: ProductCard) {
   function add(e: MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
-    onAdd && onAdd();
+    onAddClick?.();
   }
   return (
     <div className={CardContainer}>
