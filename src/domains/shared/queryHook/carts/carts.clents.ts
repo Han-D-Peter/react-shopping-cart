@@ -5,14 +5,9 @@ import { URI } from "../../URLs";
 
 class CartsRepository {
   async getCarts() {
-    try {
-      const response = await fetch(URI.CART_URI);
-      const responseData = await response.json();
-      const zodParsed = responseScheme(cartsScheme).parse(responseData);
-      return zodParsed;
-    } catch (error) {
-      throw new Error("getCarts api 의 오류.");
-    }
+    const response = await fetch(URI.CART_URI);
+    const responseData = await response.json();
+    return responseScheme(cartsScheme).parse(responseData);
   }
 
   async addToCart(product: Product) {
@@ -21,17 +16,15 @@ class CartsRepository {
       body: JSON.stringify({ product }),
     });
 
-    const responseData: Response<{}> = await response.json();
-    const zodParsed = responseScheme(z.object({})).parse(responseData);
-    return zodParsed;
+    const responseData: Response<object> = await response.json();
+    return responseScheme(z.object({})).parse(responseData);
   }
 
   async deleteProductFromCart({ id }: { id: number }) {
-    return fetch(`${URI.CART_URI}/${id}`, { method: "DELETE" }).then<
-      Response<{}>
-    >((res) => {
-      return responseScheme(z.object({})).parse(res.json());
-    });
+    const response = (
+      await fetch(`${URI.CART_URI}/${id}`, { method: "DELETE" })
+    ).json();
+    return responseScheme(z.object({})).parse(response);
   }
 }
 
